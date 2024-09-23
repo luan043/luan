@@ -1,0 +1,215 @@
+@import
+url(‘https://fonts.googleapis.com/css2?
+family=Nunito+Sans:ital,opsz,
+wght@0,6..12,200..1000;1,6..12,200..1000&display=swap’);
+
+:root {
+    --bg-color: #222831;
+    --primary-color: #DDDDDD;
+    --secundary-color: #F05454;
+    --font: "Nunito Sans", sans-serif;
+    }
+
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--primary-color);
+        font-family: var(--font);
+        height: 100vh;
+        margin: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            text-align: center;
+            padding: 1px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                color: var(--bg-color);
+                font-weight: 700;
+                }
+                nav {
+                    display: flex;
+                    justify-content: center;
+                    font-weight: 400;
+                    }
+                    nav a {
+                        text-decoration: none;
+                        color: var(--bg-color);
+                        margin: 0rem 2rem 3rem 0rem;
+                        font-size: 4rem;
+                    }
+                    nav a:hover {
+                        text-decoration: underline;
+                        transform: scale(0.90);
+                        transition: transform 0.1s;
+                        }
+
+                    .graficos-container{
+                        margin: 5rem;
+
+                    }        
+
+                    .graficos-container__texto{
+                        font-size: 1.3rem;
+                        text-align: center;
+                        padding: 2rem;
+                        border: var(--secundary-color) solid 2px;
+                    }
+                   
+                    span{
+                        font-weight: bold;
+                        color: var(--secundary-color);
+                    }
+
+
+                        footer {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: var(--primary-color);
+                            color: var(--bg-color);
+                            width: 100%;
+                            height: 3rem;
+                            margin-top: 2rem;
+                            }
+
+Adicionar comentário para a turma...
+
+
+Aviso: "let imagemDaEstrada; let imagemDoAtor;…"
+MARIO FRANCISCO DE OLIVEIRA PINA
+Criado em: 29 de jul.29 de jul. (editado: 2 de set.)
+let imagemDaEstrada;
+let imagemDoAtor;
+let imagemCarro;
+let imagemCarro1;
+let imagemCarro2;
+let imagemCarro3;
+let imagemCarro4;
+let imagemCarro5;
+
+let yAtor = 365;
+let xAtor = 25;
+
+let xCarro = 600;
+let xCarro1 = 600;
+let xCarro2 = 600;
+let xCarro3 = 600;
+let xCarro4 = 600;
+let xCarro5 = 600;
+
+function preload(){
+  imagemDaEstrada = loadImage("imagens/estrada.png");
+  imagemDoAtor = loadImage("imagens/ator-1.png");
+  imagemCarro = loadImage("imagens/carro-1.png");
+   imagemCarro1 = loadImage("imagens/carro-2.png");
+  imagemCarro2 = loadImage("imagens/carro-3.png");
+  imagemCarro3 = loadImage("imagens/carro-1.png");
+   imagemCarro4 = loadImage("imagens/carro-2.png");
+  imagemCarro5 = loadImage("imagens/carro-3.png");
+}
+
+
+function setup() {
+  createCanvas(500, 400);
+}
+
+function draw() {
+  background(imagemDaEstrada);
+   mostraAtor();
+   mostraCarro();
+  movimentaAtor();
+  movimentaCarro();
+  retorno();
+  verificaColisao();
+}
+
+function mostraAtor(){
+ 
+   image(imagemDoAtor, xAtor, yAtor, 35, 35);
+ 
+}
+function mostraCarro(){
+  image(imagemCarro, xCarro, 40, 35, 35);
+   image(imagemCarro1, xCarro1, 95, 35, 35);
+  image(imagemCarro2, xCarro2, 150, 35, 35);
+   image(imagemCarro3, xCarro3, 210, 35, 35);
+   image(imagemCarro4, xCarro4, 270, 35, 35);
+  image(imagemCarro5, xCarro5, 320, 35, 35);
+}
+
+function movimentaAtor(){
+ 
+  if(keyIsDown(87)){
+     
+      yAtor -= 3;
+     
+     }
+  if(keyIsDown(83)){
+     yAtor += 3;
+   
+     }
+ 
+ 
+}
+
+function movimentaCarro(){
+  xCarro -= 3;
+  xCarro1 -= 5;
+  xCarro2 -= 8;
+  xCarro3 -= 3;
+  xCarro4 -= 5;
+  xCarro5 -= 8;
+  print(xCarro);
+}
+
+function retorno(){
+  if(xCarro < -100 ){
+   
+    xCarro =600;
+     
+      }
+     if(xCarro1 < -100 ){
+   
+    xCarro1 =600;
+     
+      }
+  if(xCarro2 < -100 ){
+   
+    xCarro2 =600;
+     
+      }
+  if(xCarro3 < -100 ){
+   
+    xCarro3 =600;
+     
+      }
+  if(xCarro4 < -100 ){
+   
+    xCarro4 =600;
+     
+      }
+  if(xCarro5 < -100 ){
+   
+    xCarro5 =600;
+     
+      }
+}
+
+
+function verificaColisao(){
+ 
+  colisao = collideRectCircle(xCarro, 40, 35, 35, xAtor, yAtor, 25);
+ 
+  if(colisao){
+     colidiu();
+     }
+ 
+}
+
+function colidiu(){
+  yAtor = 365;
+}
